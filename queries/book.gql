@@ -1,0 +1,71 @@
+mutation Signup($signupInput: CreateUserInput!) {
+  signup(signupInput: $signupInput) {
+    name
+    email
+    password
+  }
+}
+
+mutation loginMutation($loginUserInput: LoginUserInput!) {
+  login(loginUserInput: $loginUserInput) {
+    authToken
+    user {
+      _id
+      name
+      email
+    }
+  }
+}
+
+query GetAuthors {
+  allAuthors {
+    authors {
+      _id
+      name
+    }
+  }
+}
+
+mutation CreateAuthor($createAuthorInput: CreateAuthorInput!) {
+  createAuthor(createAuthorInput: $createAuthorInput) {
+    _id
+  }
+}
+
+query GetBooks {
+  books {
+    books {
+      _id
+      title
+      coverImage
+      price
+      description
+      readers {
+        _id
+      }
+      author {
+        _id
+        name
+      }
+    }
+  }
+}
+
+mutation CreateBook($createBookInput: CreateBookInput!) {
+  createBook(createBookInput: $createBookInput) {
+    _id
+  }
+}
+
+mutation BuyBook($buyBookInput: BuyBookInput!) {
+  buyBook(buyBookInput: $buyBookInput) {
+    _id
+    title
+    description
+    price
+    coverImage
+    author {
+      _id
+    }
+  }
+}
